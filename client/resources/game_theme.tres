@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://fwt5vw4pf8cc"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0.188235, 0.0901961, 0.0313726, 0.447059)
+Label/constants/shadow_outline_size = 7
+RichTextLabel/colors/font_shadow_color = Color(0.188235, 0.0901961, 0.0313726, 0.447059)
+RichTextLabel/constants/shadow_outline_size = 7

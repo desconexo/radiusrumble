@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjiae7o4rl23i"]
+
+[ext_resource type="Script" uid="uid://dt2qexheknfiw" path="res://classes/register_form/RegisterForm.cs" id="1_1f7y0"]
+
+[node name="RegisterForm" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1f7y0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Username" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Username"
+
+[node name="Password" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Password"
+virtual_keyboard_type = 6
+secret = true
+
+[node name="ConfirmPassword" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Confirm Password"
+virtual_keyboard_type = 6
+secret = true
+
+[node name="ColorPicker" type="ColorPicker" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/sv_width = 100
+theme_override_constants/sv_height = 100
+picker_shape = 1
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Back"
+
+[node name="ConfirmButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Confirm
+"

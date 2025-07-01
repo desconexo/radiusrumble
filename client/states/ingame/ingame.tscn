@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl5xnqwugleue"]
+
+[ext_resource type="Script" uid="uid://dcyrtbm3150t6" path="res://states/ingame/Ingame.cs" id="1_b7vyf"]
+[ext_resource type="PackedScene" uid="uid://dg2fok1vxb208" path="res://classes/log/log.tscn" id="2_0uskn"]
+[ext_resource type="Theme" uid="uid://fwt5vw4pf8cc" path="res://resources/game_theme.tres" id="2_ll2wp"]
+[ext_resource type="Texture2D" uid="uid://gbj6kv32yxf8" path="res://resources/floor.svg" id="2_q22go"]
+[ext_resource type="PackedScene" uid="uid://difk4pgitosr1" path="res://classes/hiscores/hiscores.tscn" id="2_wuwgw"]
+
+[node name="InGame" type="Node"]
+script = ExtResource("1_b7vyf")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ll2wp")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LogoutButton" type="Button" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Logout"
+
+[node name="LineEdit" type="LineEdit" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Chat"
+
+[node name="SendButton" type="Button" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Send"
+
+[node name="Hiscores" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("2_wuwgw")]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Log" parent="UI/MarginContainer/VBoxContainer" instance=ExtResource("2_0uskn")]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Floor" type="Sprite2D" parent="World"]
+texture_repeat = 2
+texture = ExtResource("2_q22go")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)

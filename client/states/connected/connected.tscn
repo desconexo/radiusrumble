@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://cay76vx40dew2"]
+
+[ext_resource type="Script" uid="uid://6ocyv3t8yrd5" path="res://states/connected/Connected.cs" id="1_jx7w3"]
+[ext_resource type="PackedScene" uid="uid://dg2fok1vxb208" path="res://classes/log/log.tscn" id="2_idi6s"]
+[ext_resource type="Theme" uid="uid://fwt5vw4pf8cc" path="res://resources/game_theme.tres" id="2_o1o5k"]
+[ext_resource type="PackedScene" uid="uid://figydqcl3n4e" path="res://classes/login_form/login_form.tscn" id="2_tk3qr"]
+[ext_resource type="PackedScene" uid="uid://bjiae7o4rl23i" path="res://classes/register_form/register_form.tscn" id="3_rp112"]
+[ext_resource type="Shader" uid="uid://bj8uyc4kx7okq" path="res://resources/background_effect.gdshader" id="3_x7iwh"]
+[ext_resource type="Texture2D" uid="uid://gbj6kv32yxf8" path="res://resources/floor.svg" id="4_tk3qr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rp112"]
+shader = ExtResource("3_x7iwh")
+shader_parameter/amplitutde = Vector2(1, 0)
+shader_parameter/speed = Vector2(1, 0)
+
+[node name="Connected" type="Node"]
+script = ExtResource("1_jx7w3")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_o1o5k")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="FormContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="UI/MarginContainer/FormContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[center][b][shake][rainbow]Radius Rumble[/rainbow][/shake][/b][/center]"
+fit_content = true
+
+[node name="LoginForm" parent="UI/MarginContainer/FormContainer" instance=ExtResource("2_tk3qr")]
+layout_mode = 2
+
+[node name="RegisterForm" parent="UI/MarginContainer/FormContainer" instance=ExtResource("3_rp112")]
+visible = false
+layout_mode = 2
+
+[node name="RegisterPrompt" type="RichTextLabel" parent="UI/MarginContainer/FormContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[i]Don't have an account? [color=#E3A][url=register][b]Create one here![/b][/url][/color][/i]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Log" parent="UI/MarginContainer/FormContainer" instance=ExtResource("2_idi6s")]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rp112")
+texture = ExtResource("4_tk3qr")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
