@@ -21,7 +21,7 @@ public partial class Entered : Node
         WS.Connect("OnPacketReceived", Callable.From<string>(onWebSocketPacketReceived));
 
         log.Info("Connecting to server...");
-        WS.ConnectAsync("ws://localhost:8080/ws");
+        WS.ConnectAsync("wss://gameserver-251090453108.southamerica-east1.run.app/ws");
     }
 
     private void onWebSocketConnected()
